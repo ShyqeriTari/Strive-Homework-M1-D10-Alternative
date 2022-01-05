@@ -73,3 +73,35 @@ for (let i = 0; i < arrOfArr.length; i++) {
 
 console.log(arrOfArr)
 
+function longestArray (arr1, arr2) {
+    if (arr1.length > arr2.length){
+        console.log(arr1 + " is longer than " + arr2)
+    } else if (arr2.length > arr1.length){
+        console.log(arr2 + " is longer than " + arr1)
+    } else {
+        console.log(arr1 + " length is equal to " + arr2 + " length")
+    }
+}
+
+longestArray(["1",2,"3",4],[2,"3",4])
+
+        let aOne = 0
+        let aTwo = 0
+function higherArrValue(array1, array2) {
+
+    for (let i = 0; i < array1.length; i++){
+        aOne += array1[i]
+    }
+    for(let i = 0; i < array2.length; i++){
+        aTwo += array2[i]
+    }
+    if (aOne > aTwo) {
+console.log(aOne + " is higher than " + aTwo)
+} else if (aOne < aTwo) {
+    console.log(aTwo + " is higher than " + aOne)
+    } else {
+        console.log (aOne + " is equal to " + aTwo)
+    }
+}
+
+higherArrValue([1,1,1,6,11], [1,1,1,1,18,2])
