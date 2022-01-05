@@ -104,4 +104,4 @@ console.log(aOne + " is higher than " + aTwo)
     }
 }
 
-higherArrValue([1,1,1,6,11], [1,1,1,1,18,2])
+higherArrValue([1,1,1,1,100,2], [1,1,1,1,100,2])
