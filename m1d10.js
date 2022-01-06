@@ -119,13 +119,13 @@ higherArrValue([1,1,1,1,100,2], [1,1,1,1,100,2])
         39) Write a function to add new items to a unordered list
         40) Write a function to empty a list
         */
-
+/*
         let container = document.getElementById("container")
         let tableData = document.getElementsByTagName("td")
 
         for(let i = 0; i < tableData.length; i++) {
             tableData[i].innerText = "DOM TEXT"
-        }
+        } */
 
         function changeHeading() {
             let heading = document.querySelector("h1")
@@ -192,4 +192,180 @@ higherArrValue([1,1,1,1,100,2], [1,1,1,1,100,2])
         emptyList()
 
 
-        
+        /*
+         41) Add an eventListener to show an alert when the cursor hovers a link, displaying its href property
+        42) Create a button that will hide every image on the page when clicked
+        43) Create a button that will hide or show the table on the page when clicked
+        44) Write a function for calculating the sum of every number inside all the table cells (if their content is numeric)
+        45) Delete the last letter from the heading each time the user clicks on it
+        46) Change the background color of a <td> if the user clicks on it
+        47) Add a delete button at the bottom of the table, when clicked it should delete a random <td>
+        48) Add automatically a pink border to a cell when the mouse hovers it
+        49) Write a function to create a table with 4 rows and 3 columns programmatically and add it to the bottom of the page
+        50) Write a function to remove the last table from the page
+        */
+
+        function showAlert() {
+            let links = document.querySelectorAll("a")
+            for(let i = 0; i < links.length; i++){
+                links[i].onmouseenter = function(e) {
+                    alert(e.target.href)
+                }
+            }
+        }
+        showAlert()
+
+        function hideImages() {
+            let body = document.querySelector("body")
+            let button = document.createElement("button")
+            button.innerText = "Hide Images"
+            button.style.marginTop = "40px"
+            button.style.marginBottom = "40px"
+            button.style.marginRight = "10px"
+            body.appendChild(button)
+
+        let images = document.getElementsByTagName("img")
+        button.onclick = function () {
+            for(let i=0; i < images.length; i++) {
+               
+                    images[i].style.display = "none"
+                }
+            }
+        }
+
+        hideImages()
+
+        function toggleTable() {
+
+            let body = document.querySelector("body")
+            let button = document.createElement("button")
+            button.innerText = "Toggle Table"
+            button.style.marginTop = "40px"
+            button.style.marginBottom = "40px"
+            button.style.marginRight = "10px"
+            body.appendChild(button)
+
+            let table = document.querySelector("table")
+            button.onclick = function() {
+                if (table.style.display !== "none"){
+                table.style.display = "none"
+                } else if (table.style.display === "none"){
+                    table.style.display = ""
+                }
+            }
+
+        }
+
+        toggleTable()
+
+       /* function sumTableCells() {
+            let tD = document.querySelectorAll("td")
+            let sum = 0
+            for (let i = 0; i < tD.length; i++) {
+                let toNum = parseInt(tD[i].innerText)
+                if (toNum !== NaN) {
+                    sum += toNum
+                }
+            }
+
+            console.log(sum)
+        }
+
+        sumTableCells()*/
+
+        const sumNumbers = function () {
+            const tds = document.querySelectorAll("td");
+            let sum = 0;
+            tds.forEach((td) => {
+              const toNumber = parseInt(td.innerText);
+              const isNotNumeric = isNaN(toNumber);
+              if (!isNotNumeric) {
+                sum += toNumber;
+              }
+            });
+            console.log(sum);
+          };
+          sumNumbers();
+
+
+          function deleteLast() {
+
+            let hOne = document.querySelector("h1")
+            hOne.onclick = function (e) {
+                hOne.innerText = hOne.innerText.substring(0, hOne.innerText.length - 1);
+              };
+          }
+
+          deleteLast()
+
+          function changeBgColor() {
+              let tds = document.querySelectorAll("td")
+              for ( let i = 0; i < tds.length; i++) {
+                  tds[i].onclick = function (e) {
+                e.target.classList.toggle("background")
+                  }
+              }
+          }
+
+          changeBgColor()
+
+          function deleteTd() {
+            let body = document.querySelector("body")
+            let button = document.createElement("button")
+            button.innerText = "Delete Random Td"
+            button.style.marginTop = "40px"
+            button.style.marginBottom = "40px"
+            button.style.marginRight = "10px"
+            body.appendChild(button)
+            let tds = document.querySelectorAll("td")
+            let tdLength = tds.length
+
+            button.onclick = function () {
+                tds[Math.floor(Math.random()* tdLength)].remove()
+                
+                  }
+
+        }
+
+        deleteTd()
+
+        function pinkBorder() {
+            let cells = document.querySelectorAll("td")
+            cells.forEach((td) =>{
+                td.onmouseenter = function (e) {
+                    e.target.style.border = "2px solid pink"
+                }
+            })
+
+             }
+
+             pinkBorder()
+
+             function addTable () {
+                 let body = document.querySelector("body")
+                 let table = document.createElement("table")
+                 body.appendChild(table)
+                 for (let i = 0; i < 4; i++) {
+                    let tRows = document.createElement("tr")
+                    table.appendChild(tRows)
+                     
+                     for (let j = 1; j < 4; j++){
+                        let tData = document.createElement("td")
+                        tData.innerText = j
+                         tRows.appendChild(tData)
+                     }
+                    }
+                    
+             }
+
+             addTable()
+
+
+             function removeLastTable() {
+                let table = document.querySelectorAll("table")[1]
+                table.remove() 
+           }
+
+           removeLastTable()
+
+             
