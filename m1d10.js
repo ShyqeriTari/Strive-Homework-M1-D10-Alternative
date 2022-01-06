@@ -317,10 +317,10 @@ higherArrValue([1,1,1,1,100,2], [1,1,1,1,100,2])
             button.style.marginBottom = "40px"
             button.style.marginRight = "10px"
             body.appendChild(button)
-            let tds = document.querySelectorAll("td")
-            let tdLength = tds.length
 
             button.onclick = function () {
+                let tds = document.querySelectorAll("td")
+            let tdLength = tds.length
                 tds[Math.floor(Math.random()* tdLength)].remove()
                 
                   }
