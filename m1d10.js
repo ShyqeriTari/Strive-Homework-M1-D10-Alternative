@@ -258,20 +258,6 @@ higherArrValue([1,1,1,1,100,2], [1,1,1,1,100,2])
 
         toggleTable()
 
-       /* function sumTableCells() {
-            let tD = document.querySelectorAll("td")
-            let sum = 0
-            for (let i = 0; i < tD.length; i++) {
-                let toNum = parseInt(tD[i].innerText)
-                if (toNum !== NaN) {
-                    sum += toNum
-                }
-            }
-
-            console.log(sum)
-        }
-
-        sumTableCells()*/
 
         const sumNumbers = function () {
             const tds = document.querySelectorAll("td");
