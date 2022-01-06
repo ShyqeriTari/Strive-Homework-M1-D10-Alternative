@@ -105,3 +105,91 @@ console.log(aOne + " is higher than " + aTwo)
 }
 
 higherArrValue([1,1,1,1,100,2], [1,1,1,1,100,2])
+
+
+/*
+31) Get the element with an id of "container" from the page
+        32) Get every <td> element from the page
+        33) Use a loop for printing the text inside of every <td> element in the page
+        34) Write a function to change the heading of the page
+        35) Write a function to add an extra row to the table
+        36) Write a function to add a class of "test" to each row in the table
+        37) Write a function to add a red background to every link in the page
+        38) Console log "Page loaded" when the page is correctly loaded
+        39) Write a function to add new items to a unordered list
+        40) Write a function to empty a list
+        */
+
+        let container = document.getElementById("container")
+        let tableData = document.getElementsByTagName("td")
+
+        for(let i = 0; i < tableData.length; i++) {
+            tableData[i].innerText = "DOM TEXT"
+        }
+
+        function changeHeading() {
+            let heading = document.querySelector("h1")
+            heading.innerText = "DOM HEADING"
+        }
+
+        changeHeading()
+
+        function addRow() {
+            let table = document.querySelector("table")
+            let row = document.createElement("tr")
+            for (let i = 0; i < 5; i++) {
+                let tD = document.createElement("td")
+                tD.innerText = i + 1
+                row.appendChild(tD)
+            }
+            table.appendChild(row)
+        }
+
+        addRow()
+
+        function addClass() {
+
+            let tableRow = document.querySelectorAll("tr")
+
+            for (let i = 0; i < tableRow.length; i++){
+                tableRow[i].classList.add("test")
+            }
+
+        }
+
+        addClass()
+
+        function addBackground() {
+            let links = document.querySelectorAll("a")
+            for(let i = 0; i < links.length; i++){
+                links[i].style.backgroundColor = "red"
+            }
+        }
+
+        addBackground()
+
+        window.onload = function(){
+            console.log("Page Loaded")
+        }
+
+
+        function addItems() {
+            let uL = document.querySelector("ul")
+            let items = document.createElement("li")
+            items.innerText = "New Item"
+            uL.appendChild(items)
+        }
+        
+        addItems()
+
+        function emptyList() {
+            let list = document.querySelectorAll("ul")
+            for (let i=0; i < list.length; i++){
+                list[i].innerHTML = ""
+            }
+        }
+
+        emptyList()
+
+
+        
